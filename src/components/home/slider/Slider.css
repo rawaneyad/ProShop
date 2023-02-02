@@ -32,7 +32,6 @@
   width: 150px;
   height: 40px;
   border-radius: 20px;
-  background: #fcdd06;
 }
 .ant-carousel .sliderBox .ant-space-item .mock-block {
   flex: none;
@@ -71,5 +70,4 @@
 }
 .ant-carousel .slick-dots li.slick-active button {
   margin-inline: 4px;
-  background-color: #fcdd06;
 }/*# sourceMappingURL=Slider.css.map */

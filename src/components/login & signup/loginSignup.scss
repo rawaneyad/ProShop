@@ -1,0 +1,33 @@
+.LoginSignup {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 0;
+  padding-left: 1.5em;
+  .title {
+    padding: 0;
+    font-size: 30px;    
+    font-family: "muli";
+    font-style: normal;
+    text-align: left;
+  }
+  .text {
+    opacity: 0.7;
+    font-family: "muli";
+    font-size: 19.4px;    
+    color: #707070;
+  }
+  .footerText{
+    font-size: 15px;
+  }
+  .ant-btn {
+    width: 100%;
+  }
+  .LoginOrSignup {
+    width: 50%;
+    img {
+      width: 650px;
+      height: 546px;
+    }
+  }
+}

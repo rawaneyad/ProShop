@@ -9,7 +9,7 @@ const IconBox = () => {
       <div className="iconDev">
         <UserOutlined />
         <div>
-          <Link to="/signup">signup</Link>/<Link to="/login">login</Link>
+          <Link to="/signup">Signup</Link>/<Link to="/login">Login</Link>
         </div>
       </div>
       <div className="iconDev">
