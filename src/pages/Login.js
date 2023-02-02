@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { Space } from "antd";
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+  return <Space align="center" className="sliderBox">Login</Space>;
+};
 
-export default Login
+export default Login;

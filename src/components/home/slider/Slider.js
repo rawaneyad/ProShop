@@ -4,7 +4,7 @@ import slider1 from "../../../Image/lkjnsadlkjna.png";
 import slider2 from "../../../Image/kisspng-airpods.png";
 import slider3 from "../../../Image/Smartphone iPho.png";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import './Slider.css'
+import "./Slider.css";
 const { Title, Text } = Typography;
 const sliderArr = [
   {
@@ -32,25 +32,26 @@ const sliderArr = [
 const Slider = () => {
   return (
     <Carousel
-      // autoplay
+      autoplay
       dots={true}
       arrows={true}
       prevArrow={<LeftOutlined />}
       nextArrow={<RightOutlined />}
     >
-        {sliderArr.map((item) => (
-          <Space align="center" className="sliderBox">
-            <div className="sliderData">
-              <Text className="text">{item.text1}</Text>
-              <Title className="title">{item.title}</Title>
-              <Text className="text">{item.text2}</Text><br/>
-              <Button type="primary">Shop now</Button>
-            </div>
-            <span className="mock-block">
-              <img src={item.img} alt='sliderImage' />
-            </span>
-          </Space>
-        ))}
+      {sliderArr.map((item) => (
+        <Space align="center" className="sliderBox">
+          <div className="sliderData">
+            <Text className="text">{item.text1}</Text>
+            <Title className="title">{item.title}</Title>
+            <Text className="text">{item.text2}</Text>
+            <br />
+            <Button type="primary">Shop now</Button>
+          </div>
+          <span className="mock-block">
+            <img src={item.img} alt="sliderImage" />
+          </span>
+        </Space>
+      ))}
     </Carousel>
   );
 };

@@ -2,12 +2,15 @@ import React from "react";
 import { UserOutlined } from "@ant-design/icons";
 import { Icon } from "@iconify/react";
 import { Badge } from "antd";
+import { Link } from "react-router-dom";
 const IconBox = () => {
   return (
     <div className="iconsDev">
       <div className="iconDev">
         <UserOutlined />
-        signup/login
+        <>
+          <Link to="/signup">signup</Link>/<Link to="/login">login</Link>
+        </>
       </div>
       <div className="iconDev">
         <Badge size="small" count={0} showZero>
