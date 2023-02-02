@@ -25,4 +25,8 @@
 }
 .ant-layout-header .iconsDev .iconDev .ant-badge {
   color: white;
+}
+.ant-layout-header .iconsDev .iconDev a {
+  color: white;
+  text-decoration: none;
 }/*# sourceMappingURL=header.css.map */

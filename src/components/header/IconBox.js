@@ -8,9 +8,9 @@ const IconBox = () => {
     <div className="iconsDev">
       <div className="iconDev">
         <UserOutlined />
-        <>
+        <div>
           <Link to="/signup">signup</Link>/<Link to="/login">login</Link>
-        </>
+        </div>
       </div>
       <div className="iconDev">
         <Badge size="small" count={0} showZero>
