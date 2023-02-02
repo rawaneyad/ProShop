@@ -1,0 +1,75 @@
+.ant-carousel .sliderBox {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  height: 300px;
+  background: #f2f2f2;
+}
+.ant-carousel .sliderBox .sliderData {
+  margin: 0;
+  padding: 1em;
+}
+.ant-carousel .sliderBox .sliderData .text {
+  font-family: "muli";
+  font-size: 20px;
+  font-weight: 200;
+  font-style: normal;
+  text-align: left;
+  color: #242424;
+  line-break: 10px;
+}
+.ant-carousel .sliderBox .sliderData .title {
+  margin: 0;
+  font-family: "muli";
+  font-size: 45px;
+  font-weight: 600;
+  font-style: normal;
+  text-align: left;
+  color: #242424;
+}
+.ant-carousel .sliderBox .sliderData button {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background: #fcdd06;
+}
+.ant-carousel .sliderBox .ant-space-item .mock-block {
+  flex: none;
+  margin: 8px 4px;
+  padding: 4px;
+  left: 20px;
+  height: 300px;
+}
+.ant-carousel .sliderBox .ant-space-item .mock-block img {
+  height: 300px;
+  width: 300px;
+}
+.ant-carousel .slick-next,
+.ant-carousel .slick-next:hover,
+.ant-carousel .slick-next:focus {
+  font-size: inherit;
+  right: 10px;
+  top: 280px;
+  z-index: 1;
+  color: black;
+}
+.ant-carousel .slick-prev,
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-prev:focus {
+  font-size: inherit;
+  left: 10px;
+  top: 20em;
+  z-index: 1;
+  color: black;
+}
+.ant-carousel .slick-dots li button {
+  width: 14px;
+  height: 14px;
+  border-radius: 18px;
+  background-color: #cccccc;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  margin-inline: 4px;
+  background-color: #fcdd06;
+}/*# sourceMappingURL=Slider.css.map */

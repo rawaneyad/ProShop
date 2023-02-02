@@ -1,0 +1,28 @@
+.ant-layout-header {
+    display: flex;
+    background-color: black;
+    padding: 0.8em;
+    color: aliceblue;
+    justify-content: space-between;
+    .Search {
+      margin-top: 0.5em;
+      width: 400px;
+      .ant-input-search-button {
+        background-color: #fcdd06;
+        color: #000;
+      }
+    }
+    .iconsDev {
+      display: flex;
+      .iconDev {
+        padding-inline: 0.6em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .ant-badge {
+          color: white;
+        }
+      }
+    }
+  }

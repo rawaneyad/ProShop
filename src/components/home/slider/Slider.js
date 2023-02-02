@@ -4,7 +4,7 @@ import slider1 from "../../../Image/lkjnsadlkjna.png";
 import slider2 from "../../../Image/kisspng-airpods.png";
 import slider3 from "../../../Image/Smartphone iPho.png";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-
+import './Slider.css'
 const { Title, Text } = Typography;
 const sliderArr = [
   {

@@ -1,0 +1,28 @@
+.ant-layout-header {
+  display: flex;
+  background-color: black;
+  padding: 0.8em;
+  color: aliceblue;
+  justify-content: space-between;
+}
+.ant-layout-header .Search {
+  margin-top: 0.5em;
+  width: 400px;
+}
+.ant-layout-header .Search .ant-input-search-button {
+  background-color: #fcdd06;
+  color: #000;
+}
+.ant-layout-header .iconsDev {
+  display: flex;
+}
+.ant-layout-header .iconsDev .iconDev {
+  padding-inline: 0.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ant-layout-header .iconsDev .iconDev .ant-badge {
+  color: white;
+}/*# sourceMappingURL=header.css.map */
