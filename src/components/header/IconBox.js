@@ -21,10 +21,12 @@ const IconBox = () => {
         wishlist
       </div>
       <div className="iconDev">
-        <Badge size="small" count={0} showZero>
-          <Icon icon="ant-design:shopping-cart-outlined" />
-        </Badge>
-        cart
+        <Link to="/cart">
+          <Badge size="small" count={0} showZero>
+            <Icon icon="ant-design:shopping-cart-outlined" />
+          </Badge>
+          cart
+        </Link>
       </div>
     </div>
   );

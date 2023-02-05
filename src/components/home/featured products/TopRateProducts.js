@@ -5,7 +5,7 @@ import { getTopProducts } from "../../../redux";
 import Header from "./Header";
 import Product from "./Product";
 
-const TopRateProducts = () => {
+const TopRateProducts = ({name}) => {
   const { TopProducts } = useSelector((state) => state.Products);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,7 +13,7 @@ const TopRateProducts = () => {
   }, []);
   return (
     <Space direction="vertical" className="ListProduct">
-      <Header name="TOP RATE PRODUCTS" />
+      <Header name={name} />
       <List
         grid={{ gutter: 15, column: 3 }}
         dataSource={TopProducts}

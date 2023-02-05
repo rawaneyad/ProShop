@@ -1,0 +1,11 @@
+.EmptyCart {
+  margin: 2em;
+  width: 90%;
+  .EmptyCartComponent {
+      width: 100%;
+    .EmptyCartHeader {
+        width: 100%;
+      justify-content: center;
+    }
+  }
+}

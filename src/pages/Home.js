@@ -10,7 +10,7 @@ const Home = () => {
       <Slider />
       <ListCategories />
       <ListProducts />
-      <TopRateProducts/>
+      <TopRateProducts name="TOP RATE PRODUCTS" />
     </>
   );
 };
