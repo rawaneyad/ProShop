@@ -1,0 +1,2 @@
+export const CATEGORIES = "CATEGORIES";
+export const CATEGORIES_ERROR = "CATEGORIES_ERROR";

@@ -28,4 +28,8 @@
 .ant-layout-header .iconsDev .iconDev a {
   color: white;
   text-decoration: none;
-}/*# sourceMappingURL=header.css.map */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} /*# sourceMappingURL=header.css.map */

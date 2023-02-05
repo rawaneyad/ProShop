@@ -4,9 +4,10 @@ const Header = () => {
   return (
     <Tabs
       defaultActiveKey="1"
+      centered
       items={[
         {
-          label: "Featured Categories",
+          label: "Featured Products",
           key: "1",
         },
       ]}

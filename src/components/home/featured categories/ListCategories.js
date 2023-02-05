@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
-import { List } from "antd";
+import { List, Space } from "antd";
 import Category from "./Category";
-import { useGetProShopQuery } from "../../../Store/Services/Proshop";
+import "./categories.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategories } from "../../../redux";
 
 const ListCategories = () => {
-  const { data, isError, isSuccess, isLoading } = useGetProShopQuery();
-  const renderProShop = () => {
-    if (isLoading) {
-      return <div> loading</div>;
-    }
-    if (isError) return <div className="error__card">Error </div>;
-
-    const { categories } = data;
-    if (isSuccess && categories.length === 0)
-      return <div className="error__card"> empty</div>;
-    return (
+  const { Categories } = useSelector((state) => state.Categories);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+  return (
+    <Space direction="vertical" className="ListCategories">
+      <Header />
       <List
         grid={{ gutter: 15, column: 4 }}
-        dataSource={categories}
+        dataSource={Categories.categories}
         pagination={{
           pageSize: 4,
           position: "top",
@@ -31,13 +30,7 @@ const ListCategories = () => {
           </List.Item>
         )}
       />
-    );
-  };
-  return (
-    <div>
-      <Header />
-      {renderProShop()}
-    </div>
+    </Space>
   );
 };
 

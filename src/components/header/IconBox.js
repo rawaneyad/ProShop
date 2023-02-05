@@ -7,9 +7,11 @@ const IconBox = () => {
   return (
     <div className="iconsDev">
       <div className="iconDev">
-        <UserOutlined />
         <div>
-          <Link to="/signup">Signup</Link>/<Link to="/login">Login</Link>
+          <Link to="/login">
+            <UserOutlined />
+            Signup/Login
+          </Link>
         </div>
       </div>
       <div className="iconDev">
