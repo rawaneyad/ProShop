@@ -12,7 +12,7 @@ const Product = ({ item }) => {
       align={"center"}
     >
       <img
-        alt="example"
+        alt="Product"
         src={item.images}
         style={{ width: 250, height: 250 }}
       />

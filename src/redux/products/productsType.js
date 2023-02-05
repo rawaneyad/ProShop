@@ -1,2 +1,4 @@
 export const PRODUCTS = "PRODUCTS";
 export const PRODUCTS_ERROR = "PRODUCTS_ERROR";
+export const TOP_PRODUCTS= "TOP_PRODUCTS"
+export const TOP_PRODUCTS_ERROR= "TOP_PRODUCTS_ERROR"

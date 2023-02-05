@@ -1,13 +1,13 @@
 import React from "react";
 import { Tabs } from "antd";
-const Header = () => {
+const Header = ({ name }) => {
   return (
     <Tabs
       defaultActiveKey="1"
-      centered
+      centered={name === "Featured Products" ? true : false}
       items={[
         {
-          label: "Featured Products",
+          label: name,
           key: "1",
         },
       ]}

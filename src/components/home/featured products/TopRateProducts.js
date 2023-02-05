@@ -1,23 +1,22 @@
-import React, { useEffect } from "react";
-import Header from "./Header";
 import { List, Space } from "antd";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTopProducts } from "../../../redux";
+import Header from "./Header";
 import Product from "./Product";
-import "./products.css";
-import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../../../redux";
 
-const ListProducts = () => {
-  const { Products } = useSelector((state) => state.Products);
+const TopRateProducts = () => {
+  const { TopProducts } = useSelector((state) => state.Products);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts());
+      dispatch(getTopProducts());
   }, []);
   return (
     <Space direction="vertical" className="ListProduct">
-      <Header name="Featured Products" />
+      <Header name="TOP RATE PRODUCTS" />
       <List
         grid={{ gutter: 15, column: 3 }}
-        dataSource={Products.products}
+        dataSource={TopProducts}
         pagination={{
           pageSize: 3,
           position: "bottom",
@@ -34,4 +33,4 @@ const ListProducts = () => {
   );
 };
 
-export default ListProducts;
+export default TopRateProducts;
