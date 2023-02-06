@@ -1,9 +1,13 @@
 import React from "react";
 import { Rate, Typography, Space, Button } from "antd";
 import { Icon } from "@iconify/react";
+import { addToCart } from "../../../redux";
+import { useDispatch } from "react-redux";
+
 const { Text } = Typography;
 
 const Product = ({ item }) => {
+  const dispatch = useDispatch();
   return (
     <Space
       direction="vertical"
@@ -21,7 +25,12 @@ const Product = ({ item }) => {
       <Text>${item.price}</Text>
       <Space>
         <Button icon={<Icon icon="ant-design:heart-outlined" />} />
-        <Button type="primary">Add to cart</Button>
+        <Button
+          type="primary"
+          onClick={() => {dispatch(addToCart(item))}}
+        >
+          Add to cart
+        </Button>
       </Space>
     </Space>
   );

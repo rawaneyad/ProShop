@@ -1,19 +1,26 @@
-import { PRODUCTS, PRODUCTS_ERROR } from "./productsType";
+import {
+  GET_PRODUCTS_START,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_FAILED,
+} from "./productsType";
 import axios from "axios";
 
 export const getProducts = () => async (dispatch) => {
+  dispatch({
+    type: GET_PRODUCTS_START,
+  });
   try {
     const res = await axios.get(
       `https://prohop-express.herokuapp.com/api/products`
     );
     dispatch({
-      type: PRODUCTS,
-      Products: res.data,
+      type: GET_PRODUCTS_SUCCESS,
+      payload: res.data,
     });
   } catch (e) {
     dispatch({
-      type: PRODUCTS_ERROR,
-      Products: console.log(e),
+      type: GET_PRODUCTS_FAILED,
+      payload: e?.response?.message,
     });
   }
 };

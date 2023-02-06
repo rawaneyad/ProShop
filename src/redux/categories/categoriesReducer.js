@@ -1,13 +1,37 @@
-import { CATEGORIES } from "./categoriesType";
+import {
+  GET_CATEGORIES_START,
+  GET_CATEGORIES_SUCCESS,
+  GET_CATEGORIES_FAILED,
+} from "./categoriesType";
 const initialState = {
-  Categories: [],
+  Categories: { 
+    categories: [], isLoading: false, error: ""
+   },
 };
 const categoriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CATEGORIES:
+    case GET_CATEGORIES_START:
       return {
         ...state,
-        Categories: action.Categories,
+        Categories: { ...state.Categories, isLoading: true },
+      };
+    case GET_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        Categories: {
+          ...state.Categories,
+          isLoading: false,
+          categories: action.payload,
+        },
+      };
+    case GET_CATEGORIES_FAILED:
+      return {
+        ...state,
+        Categories: {
+          ...state.Categories,
+          isLoading: false,
+          error: action.payload,
+        },
       };
     default:
       return state;

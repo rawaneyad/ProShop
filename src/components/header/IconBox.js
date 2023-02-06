@@ -3,7 +3,9 @@ import { UserOutlined } from "@ant-design/icons";
 import { Icon } from "@iconify/react";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const IconBox = () => {
+  const { count } = useSelector((state) => state.Cart);
   return (
     <div className="iconsDev">
       <div className="iconDev">
@@ -22,7 +24,7 @@ const IconBox = () => {
       </div>
       <div className="iconDev">
         <Link to="/cart">
-          <Badge size="small" count={0} showZero>
+          <Badge size="small" count={count} showZero>
             <Icon icon="ant-design:shopping-cart-outlined" />
           </Badge>
           cart

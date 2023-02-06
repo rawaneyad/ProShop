@@ -62,6 +62,10 @@
   z-index: 1;
   color: black;
 }
+.ant-carousel .slick-next::before,
+.ant-carousel .slick-prev::before {
+  display: none;
+}
 .ant-carousel .slick-dots li button {
   width: 14px;
   height: 14px;

@@ -22,6 +22,10 @@
       align-items: center;
       .ant-badge {
         color: white;
+        .ant-badge-count{
+          background-color: #FCDD06;
+          color: #242424;
+        }
       }
       a {
         color: white;

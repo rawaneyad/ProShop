@@ -1,19 +1,26 @@
-import { TOP_PRODUCTS, TOP_PRODUCTS_ERROR } from "./productsType";
+import {
+  GET_TOP_PRODUCTS_START,
+  GET_TOP_PRODUCTS_SUCCESS,
+  GET_TOP_PRODUCTS_FAILED,
+} from "./productsType";
 import axios from "axios";
 
 export const getTopProducts = () => async (dispatch) => {
+  dispatch({
+    type: GET_TOP_PRODUCTS_START,
+  });
   try {
     const res = await axios.get(
       `https://prohop-express.herokuapp.com/api/products/top`
     );
     dispatch({
-      type: TOP_PRODUCTS,
-      TopProducts: res.data,
+      type: GET_TOP_PRODUCTS_SUCCESS,
+      payload: res.data,
     });
   } catch (e) {
     dispatch({
-      type: TOP_PRODUCTS_ERROR,
-      TopProducts: console.log(e),
+      type: GET_TOP_PRODUCTS_FAILED,
+      payload: e?.response?.message,
     });
   }
 };

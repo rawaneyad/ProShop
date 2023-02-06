@@ -30,16 +30,19 @@ const sliderArr = [
   },
 ];
 const Slider = () => {
+  const SlickButtonFix = ({currentSlide, slideCount, children, ...props}) => (
+    <span {...props}>{children}</span>
+);
   return (
     <Carousel
       autoplay
       dots={true}
       arrows={true}
-      prevArrow={<LeftOutlined />}
-      nextArrow={<RightOutlined />}
+      prevArrow={<SlickButtonFix><LeftOutlined /></SlickButtonFix>}
+      nextArrow={<SlickButtonFix><RightOutlined /></SlickButtonFix>}
     >
       {sliderArr.map((item) => (
-        <Space align="center" className="sliderBox">
+        <Space key={item.id} align="center" className="sliderBox">
           <div className="sliderData">
             <Text className="text">{item.text1}</Text>
             <Title className="title">{item.title}</Title>

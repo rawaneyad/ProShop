@@ -25,6 +25,10 @@
 .ant-layout-header .iconsDev .iconDev .ant-badge {
   color: white;
 }
+.ant-layout-header .iconsDev .iconDev .ant-badge .ant-badge-count {
+  background-color: #FCDD06;
+  color: #242424;
+}
 .ant-layout-header .iconsDev .iconDev a {
   color: white;
   text-decoration: none;

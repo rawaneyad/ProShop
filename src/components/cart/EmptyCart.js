@@ -2,7 +2,7 @@ import { Space, Typography } from "antd";
 import React from "react";
 import emptyCart from "../../Image/Group 491.png";
 import TopRateProducts from "../home/featured products/TopRateProducts";
-import "./EmptyCart.css";
+import "./Cart.css";
 const { Text } = Typography;
 
 const EmptyCart = () => {

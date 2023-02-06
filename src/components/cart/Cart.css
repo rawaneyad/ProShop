@@ -1,0 +1,50 @@
+.Cart {
+  margin: 3em;
+  width: 90%;
+}
+.Cart .EmptyCartComponent {
+  width: 100%;
+}
+.Cart .EmptyCartComponent .EmptyCartHeader {
+  width: 100%;
+  justify-content: center;
+}
+.Cart .BoxTotal {
+  background-color: #f2f2f2;
+  width: 25em;
+  border-radius: 15px;
+}
+.Cart .BoxTotal button {
+  margin-left: 1em;
+  color: #242424;
+  width: 90%;
+  margin-bottom: 1em;
+}
+.Cart .Title {
+  margin-left: 0.5em;
+  font-size: large;
+  width: 12em;
+}
+.Cart .ProductBoxCart {
+  background-color: #F2F2F2;
+  padding: 0.5em;
+  width: 100%;
+}
+.Cart .ProductBoxCart .CloseIcon {
+  margin-bottom: 8em;
+}
+.Cart .Counter {
+  gap: 0;
+}
+.Cart .Counter Input {
+  width: 3em;
+}
+.Cart .Counter input::-webkit-outer-spin-button,
+.Cart .Counter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Cart img {
+  height: 150px;
+  width: 150px;
+}/*# sourceMappingURL=Cart.css.map */

@@ -1,0 +1,51 @@
+.Cart {
+  margin: 3em;
+  width: 90%;
+  .EmptyCartComponent {
+    width: 100%;
+    .EmptyCartHeader {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  .BoxTotal {
+    background-color: #f2f2f2;
+    width: 25em;
+    border-radius: 15px;
+    button {
+      margin-left: 1em;
+      color: #242424;
+      width: 90%;
+      margin-bottom: 1em;
+    }
+  }
+  .Title {
+    margin-left: 0.5em;
+    font-size: large;
+    width: 12em;
+  }
+  .ProductBoxCart{
+    background-color: #F2F2F2;
+    padding: .5em;
+    width: 100%;
+    .CloseIcon{
+      margin-bottom: 8em;
+      // padding-left: 8em;
+    }
+  }
+  .Counter {
+    gap: 0;
+    Input {
+      width: 3em;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  img{
+    height: 150px;
+    width: 150px;
+  }
+}
