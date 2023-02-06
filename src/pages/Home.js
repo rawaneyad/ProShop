@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Slider />
       <ListCategories />
-      <ListProducts from='Home'/>
+      <ListProducts from='Products'/>
       <TopRateProducts name="TOP RATE PRODUCTS" />
     </>
   );

@@ -13,7 +13,7 @@ const ProductBoxCart = ({ item }) => {
       <img src={item.images} alt="emptyCart" />
       <Title className="Title">{item.name}</Title>
       <Counter />
-      <Title className="Title">{item.price}</Title>
+      <Title className="Title">${item.price}</Title>
       <CloseOutlined className="CloseIcon" onClick={()=>{dispatch(deleteFromCart(item._id, item.price))}} />
     </Space>
   );

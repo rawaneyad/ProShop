@@ -1,4 +1,4 @@
-import { List, Skeleton, Space } from "antd";
+import { List, Result, Skeleton, Space } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopProducts } from "../../../redux";
@@ -16,7 +16,11 @@ const TopRateProducts = ({name}) => {
       <Header name={name} />
       {TopProducts.isLoading ? (
         <Skeleton active />
-       ) : (
+       ) :TopProducts.error!=='' ? (<Result
+       status="error"
+       title={`${name}Failed`}  
+       subTitle={TopProducts.error  }
+     />): (
       <List
         grid={{ gutter: 15, column: 3 }}
         dataSource={TopProducts.products}
