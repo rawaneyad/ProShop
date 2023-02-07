@@ -12,7 +12,7 @@ const ProductBoxCart = ({ item }) => {
     <Space className="ProductBoxCart">
       <img src={item.images} alt="emptyCart" />
       <Title className="Title">{item.name}</Title>
-      <Counter />
+      <Counter id={item._id}/>
       <Title className="Title">${item.price}</Title>
       <CloseOutlined className="CloseIcon" onClick={()=>{dispatch(deleteFromCart(item._id, item.price))}} />
     </Space>

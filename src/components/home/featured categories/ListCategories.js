@@ -17,7 +17,13 @@ const ListCategories = () => {
       <Header />
       {Categories.isLoading ? (
         <Skeleton active />
-       ) : (
+       ) :Categories.error !== "" ? (
+        <Result
+          status="error"
+          title={`Categories Failed`}
+          subTitle={Categories.error}
+        />
+      ) : (
         <List
           grid={{ gutter: 15, column: 4 }}
           dataSource={Categories.categories.categories}

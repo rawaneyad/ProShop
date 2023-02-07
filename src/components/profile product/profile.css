@@ -1,0 +1,27 @@
+.ProductProfile {
+  margin: 3em;
+}
+.ProductProfile .PreviewGroup {
+  padding: 1em;
+  width: 310px;
+}
+.ProductProfile .PreviewGroup .ant-breadcrumb {
+  margin-bottom: 1em;
+}
+.ProductProfile .PreviewGroup .ant-image {
+  margin: 0.1em;
+}
+.ProductProfile .title {
+  font-size: 30px;
+  margin: 0;
+}
+.ProductProfile .ant-list-item {
+  padding: 0;
+}
+.ProductProfile .ant-list-item .name {
+  font-size: 25px;
+}
+.ProductProfile .Title {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=profile.css.map */

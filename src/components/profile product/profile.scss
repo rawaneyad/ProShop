@@ -1,0 +1,27 @@
+.ProductProfile {
+  margin: 3em;
+  .PreviewGroup {
+    padding: 1em;
+    width: 310px;
+    .ant-breadcrumb {
+      margin-bottom: 1em;
+    }
+    .ant-image {
+      margin: 0.1em;
+    }
+  }
+  .title {
+    font-size: 30px;
+    margin: 0;
+  }
+  .ant-list-item {
+    padding: 0;
+    .name {
+      font-size: 25px;
+    }
+  }
+  .Title {
+    display: flex;
+    justify-content: space-between;
+  }
+}

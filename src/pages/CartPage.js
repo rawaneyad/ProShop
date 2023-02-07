@@ -10,7 +10,7 @@ const CartPage = () => {
 
   return (
     <Space className="Cart" direction="vertical">
-      <BreadcrumbCart />
+      <BreadcrumbCart title='Shopping Cart' />
       {count===0
       ?<EmptyCart />
       :<Cart/>}
