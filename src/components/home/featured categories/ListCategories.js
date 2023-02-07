@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
-import { List, Skeleton, Space } from "antd";
+import { List, Result, Skeleton, Space } from "antd";
 import Category from "./Category";
 import "./categories.css";
 import { useSelector, useDispatch } from "react-redux";
