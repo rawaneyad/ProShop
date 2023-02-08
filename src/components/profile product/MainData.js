@@ -5,7 +5,6 @@ import { Button, Rate, Space, Tag, Typography } from "antd";
 import { addToCart } from "../../redux";
 // import Counter from "../cart/List/Counter";
 const { Text, Title } = Typography;
-const { CheckableTag } = Tag;
 
 const MainData = () => {
   const { ProfileProduct } = useSelector((state) => state.ProfileProduct);
@@ -20,7 +19,7 @@ const MainData = () => {
       <Text>
         Colors:{" "}
         {ProfileProduct.profileProduct.colors?.map((color) => (
-          <Text>{color}, </Text>
+          <Text key={color}>{color}, </Text>
         ))}
       </Text>
       <Space>

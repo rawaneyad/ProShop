@@ -25,18 +25,19 @@ const Product = ({ item }) => {
         <Text>{item.name}</Text>
         <Rate disabled allowHalf defaultValue={item.rating} />
         <Text>${item.price}</Text>
-        <Space>
-          <Button icon={<Icon icon="ant-design:heart-outlined" />} />
-          <Button
-            type="primary"
-            onClick={() => {
-              dispatch(addToCart(item));
-            }}
-          >
-            Add to cart
-          </Button>
-        </Space>
       </Link>
+      <Space>
+        <Button icon={<Icon icon="ant-design:heart-outlined" />} />
+        <Button
+          type="primary"
+          onClick={() => {
+            const qty = 1;
+            dispatch(addToCart(item, qty));
+          }}
+        >
+          Add to cart
+        </Button>
+      </Space>
     </Space>
   );
 };

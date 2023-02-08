@@ -14,7 +14,7 @@ const ProductBoxCart = ({ item }) => {
       <Title className="Title">{item.name}</Title>
       <Counter id={item._id}/>
       <Title className="Title">${item.price}</Title>
-      <CloseOutlined className="CloseIcon" onClick={()=>{dispatch(deleteFromCart(item._id, item.price))}} />
+      <CloseOutlined className="CloseIcon" onClick={()=>{dispatch(deleteFromCart(item._id))}} />
     </Space>
   );
 };

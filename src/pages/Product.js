@@ -1,4 +1,4 @@
-import { Result, Skeleton, Space, Spin } from "antd";
+import { Result, Space, Spin } from "antd";
 import React, { useEffect } from "react";
 import ImagesGallery from "../components/profile product/ImagesGallery";
 import MainData from "../components/profile product/MainData";

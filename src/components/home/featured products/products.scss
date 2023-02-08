@@ -1,5 +1,12 @@
 .ListProduct {
   width: 100%;
+  .ant-row{
+    width: 100%;
+    .ant-col{
+    padding: 0;
+    margin: 0;
+    
+    }}
 .ant-tabs-nav-list {
   margin-left: 3em;
   margin-top: 2em;

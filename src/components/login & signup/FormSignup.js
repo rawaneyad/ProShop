@@ -31,9 +31,14 @@ const FormSignup = () => {
         autoComplete="off"
       >
         <InputItem
-          label="Enter your username"
-          name="Username"
-          message="Please input your username!"
+          label="Enter your first name"
+          name="FirstName"
+          message="Please input your first name!"
+        />
+        <InputItem
+          label="Enter your last name"
+          name="LastName"
+          message="Please input your last name!"
         />
         <InputItem
           label="Enter your email address"
