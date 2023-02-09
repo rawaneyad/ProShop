@@ -13,13 +13,11 @@ const FormSignup = () => {
   const { UserData } = useSelector((state) => state.UserData);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const onFinishFailed = () => {
     Modal.error({
-      title:
-        UserData.error !== "" ? UserData.error : "Please input correct data !",
+      title: UserData.error !== "" ? UserData.error : "",
     });
-  }, [UserData.error]);
-
+  };
   const onFinish = (values) => {
     dispatch(signup(values));
   };
@@ -36,6 +34,7 @@ const FormSignup = () => {
           remember: true,
         }}
         onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <InputItem

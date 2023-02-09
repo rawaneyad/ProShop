@@ -2,6 +2,9 @@ import {
   POST_SIGNUP_START,
   POST_SIGNUP_SUCCESS,
   POST_SIGNUP_FAILED,
+  POST_LOGIN_START,
+    POST_LOGIN_SUCCESS,
+    POST_LOGIN_FAILED,
 } from "./userType";
 const initialState = {
   UserData: {
@@ -24,9 +27,36 @@ const userReducer = (state = initialState, action) => {
           ...state.UserData,
           isLoading: false,
           UserData: action.payload,
+          error: '',
         },
       };
     case POST_SIGNUP_FAILED:
+      return {
+        ...state,
+        UserData: {
+          ...state.UserData,
+          isLoading: false,
+          error: action.payload,
+        },
+      };
+
+
+      case POST_LOGIN_START:
+      return {
+        ...state,
+        UserData: { ...state.UserData, isLoading: true },
+      };
+    case POST_LOGIN_SUCCESS:
+      return {
+        ...state,
+        UserData: {
+          ...state.UserData,
+          isLoading: false,
+          UserData: action.payload,
+          error: '',
+        },
+      };
+    case POST_LOGIN_FAILED:
       return {
         ...state,
         UserData: {

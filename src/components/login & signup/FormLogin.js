@@ -2,17 +2,27 @@ import React from "react";
 import ButtonItem from "./ButtonItem";
 import FormHeader from "./FormHeader";
 import InputItem from "./InputItem";
-import './loginSignup.css'
-import { Checkbox, Form, Divider, Typography } from "antd";
+import "./loginSignup.css";
+import { Checkbox, Form, Divider, Typography, Modal } from "antd";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux";
 const { Text } = Typography;
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
 const FormLogin = () => {
+  
+  const { UserData } = useSelector((state) => state.UserData);
+  const dispatch = useDispatch();
+
+  const onFinishFailed = () => {
+    Modal.error({
+      title: UserData.error !== "" ? UserData.error : "",
+    });
+  };
+
+  const onFinish = (values) => {
+    dispatch(login(values));
+  };
+
   return (
     <>
       <FormHeader
@@ -31,13 +41,36 @@ const FormLogin = () => {
       >
         <InputItem
           label="Enter your email address"
-          name="Email"
-          message="Please input your username!"
+          name="email"
+          rules={[
+            {
+              type: "email",
+              message: "The input is not valid Email!",
+            },
+            {
+              required: true,
+              message: "Please input your Email!",
+            },
+          ]}
         />
         <InputItem
           label="Enter your Password"
-          name="Password"
-          message="Please input your password!"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+            {
+              min: 8,
+              message: "Password must be minimum 8 characters.",
+            },
+            {
+              pattern: /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/,
+              message:
+                "Password must be include at least one capital and at least one digit.",
+            },
+          ]}
         />
         <ButtonItem type="primary" name="Login" />
         <Form.Item name="remember" valuePropName="checked">
