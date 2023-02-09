@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import ButtonItem from "./ButtonItem";
 import FormHeader from "./FormHeader";
 import InputItem from "./InputItem";
@@ -9,14 +9,17 @@ import "./loginSignup.css";
 import { signup } from "../../redux";
 const { Text } = Typography;
 
-const onFinishFailed = () => {
-  Modal.error({
-    title: "Please input correct data !",
-  });
-};
-
 const FormSignup = () => {
+  const { UserData } = useSelector((state) => state.UserData);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    Modal.error({
+      title:
+        UserData.error !== "" ? UserData.error : "Please input correct data !",
+    });
+  }, [UserData.error]);
+
   const onFinish = (values) => {
     dispatch(signup(values));
   };
@@ -33,7 +36,6 @@ const FormSignup = () => {
           remember: true,
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <InputItem
@@ -78,13 +80,14 @@ const FormSignup = () => {
               required: true,
               message: "Please input your password!",
             },
-            { 
-              min: 8, 
-              message: "Password must be minimum 8 characters." 
+            {
+              min: 8,
+              message: "Password must be minimum 8 characters.",
             },
             {
               pattern: /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/,
-              message: 'Password must be include at least one capital and at least one digit.',
+              message:
+                "Password must be include at least one capital and at least one digit.",
             },
           ]}
         />
