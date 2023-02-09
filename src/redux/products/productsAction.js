@@ -20,7 +20,7 @@ export const getProducts = () => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: GET_PRODUCTS_FAILED,
-      payload: e.message ,
+      payload: e?.response?.data.message ,
     });
   }
 };

@@ -1,19 +1,14 @@
 import React from "react";
 import { Form, Input } from "antd";
 
-const InputItem = ({ label, name, message }) => {
+const InputItem = ({ label, name, rules }) => {
   return (
     <Form.Item
       label={label}
       name={name}
-      rules={[
-        {
-          required: true,
-          message: { message },
-        },
-      ]}
+      rules={rules}
     >
-      {name === "Password" ? (
+      {name === "password" || name ==="passwordConfirmation" ? (
         <Input.Password placeholder={name} />
       ) : (
         <Input placeholder={name} />

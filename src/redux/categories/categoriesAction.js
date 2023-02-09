@@ -20,7 +20,7 @@ export const getCategories = () => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: GET_CATEGORIES_FAILED,
-      payload: e?.response?.message,
+      payload: e?.response?.data.message,
     });
   }
 };

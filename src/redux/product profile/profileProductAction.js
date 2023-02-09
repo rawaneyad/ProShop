@@ -22,7 +22,7 @@ export const getProductProfile = (id) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: GET_PRODUCT_PROFILE_FAILED,
-      payload: e.message,
+      payload: e?.response?.data.message,
     });
   }
 };

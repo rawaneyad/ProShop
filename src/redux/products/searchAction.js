@@ -16,7 +16,7 @@ export const search = (name) => async (dispatch) => {
       } catch (e) {
         dispatch({
           type: GET_SEARCH_FAILED,
-          payload: e.message,
+          payload: e?.response?.data.message,
         });
       }
 }

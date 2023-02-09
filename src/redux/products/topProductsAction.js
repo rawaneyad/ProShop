@@ -20,7 +20,7 @@ export const getTopProducts = () => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: GET_TOP_PRODUCTS_FAILED,
-      payload: e.message,
+      payload: e?.response?.data.message,
     });
   }
 };

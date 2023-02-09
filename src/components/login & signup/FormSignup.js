@@ -1,19 +1,25 @@
+import { useDispatch } from "react-redux";
 import React from "react";
 import ButtonItem from "./ButtonItem";
 import FormHeader from "./FormHeader";
 import InputItem from "./InputItem";
 import { Link } from "react-router-dom";
-import { Form, Divider, Typography } from "antd";
-import './loginSignup.css'
+import { Form, Divider, Typography, Modal } from "antd";
+import "./loginSignup.css";
+import { signup } from "../../redux";
 const { Text } = Typography;
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
+
+const onFinishFailed = () => {
+  Modal.error({
+    title: "Please input correct data !",
+  });
 };
 
 const FormSignup = () => {
+  const dispatch = useDispatch();
+  const onFinish = (values) => {
+    dispatch(signup(values));
+  };
   return (
     <div>
       <FormHeader
@@ -32,32 +38,81 @@ const FormSignup = () => {
       >
         <InputItem
           label="Enter your first name"
-          name="FirstName"
-          message="Please input your first name!"
+          name="firstName"
+          rules={[
+            {
+              required: true,
+              message: "Please input your first name",
+            },
+          ]}
         />
         <InputItem
           label="Enter your last name"
-          name="LastName"
-          message="Please input your last name!"
+          name="lastName"
+          rules={[
+            {
+              required: true,
+              message: "Please input your last name",
+            },
+          ]}
         />
         <InputItem
           label="Enter your email address"
-          name="Email"
-          message="Please input your username!"
+          name="email"
+          rules={[
+            {
+              type: "email",
+              message: "The input is not valid Email!",
+            },
+            {
+              required: true,
+              message: "Please input your Email!",
+            },
+          ]}
         />
         <InputItem
           label="Enter your Password"
-          name="Password"
-          message="Please input your password!"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+            { 
+              min: 8, 
+              message: "Password must be minimum 8 characters." 
+            },
+            {
+              pattern: /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+$/,
+              message: 'Password must be include at least one capital and at least one digit.',
+            },
+          ]}
         />
         <InputItem
           label="Confirm your password"
-          name="Password"
-          message="Please input your password!"
+          name="passwordConfirmation"
+          rules={[
+            {
+              required: true,
+              message: "Please confirm your password!",
+            },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("password") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error("The two passwords that you entered do not match!")
+                );
+              },
+            }),
+          ]}
         />
         <ButtonItem type="primary" name="Signup" />
         <Divider />
-        <Text className="text footerText">Have an account ? <Link to="/login">Login</Link></Text>
+        <Text className="text footerText">
+          Have an account ? <Link to="/login">Login</Link>
+        </Text>
       </Form>
     </div>
   );
