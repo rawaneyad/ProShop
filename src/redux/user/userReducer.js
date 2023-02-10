@@ -11,6 +11,7 @@ const initialState = {
     UserData: {},
     isLoading: false,
     error: "",
+    isAuth: false,
   },
 };
 const userReducer = (state = initialState, action) => {
@@ -28,6 +29,7 @@ const userReducer = (state = initialState, action) => {
           isLoading: false,
           UserData: action.payload,
           error: '',
+          isAuth: true
         },
       };
     case POST_SIGNUP_FAILED:
@@ -54,6 +56,7 @@ const userReducer = (state = initialState, action) => {
           isLoading: false,
           UserData: action.payload,
           error: '',
+          isAuth: true
         },
       };
     case POST_LOGIN_FAILED:

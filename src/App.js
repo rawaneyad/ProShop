@@ -10,8 +10,15 @@ import Cart from "./pages/CartPage";
 import Profile from "./pages/Profile";
 import SearchPage from "./pages/SearchPage";
 import NotFound from "./pages/404";
+import AddProduct from "./pages/AddProduct";
+import Dashboard from "./pages/Dashboard";
+import Protected from "./auth/Protected";
+import Auth from "./auth/Auth";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { UserData } = useSelector((state) => state.UserData);
+
   return (
     <ConfigProvider
       ConfigProvider
@@ -24,12 +31,50 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route
+            path="/profile/:id"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <Profile />
+              </Protected>
+            }
+          />
+          <Route
+            path="/product/add/"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <AddProduct />
+              </Protected>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <Dashboard />
+              </Protected>
+            }
+          />
+
+          <Route
+            path="/login"
+            element={
+              <Auth isAuth={UserData.isAuth}>
+                <Login />
+              </Auth>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <Auth isAuth={UserData.isAuth}>
+                <SignUp />
+              </Auth>
+            }
+          />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

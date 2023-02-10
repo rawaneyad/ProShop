@@ -4,11 +4,12 @@ import FormHeader from "./FormHeader";
 import InputItem from "./InputItem";
 import "./loginSignup.css";
 import { Checkbox, Form, Divider, Typography, Modal } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux";
 const { Text } = Typography;
 const FormLogin = () => {
+  let navigate = useNavigate();
   
   const { UserData } = useSelector((state) => state.UserData);
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const FormLogin = () => {
   };
 
   const onFinish = (values) => {
-    dispatch(login(values));
+    dispatch(login(values, navigate));
   };
 
   return (

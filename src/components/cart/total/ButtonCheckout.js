@@ -1,9 +1,10 @@
 import { Button } from 'antd'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ButtonCheckout = () => {
   return (
-    <><Button type='primary'>Button Checkout</Button></>
+    <Link to={`/dashboard`}><Button type='primary'>Button Checkout</Button></Link>
   )
 }
 

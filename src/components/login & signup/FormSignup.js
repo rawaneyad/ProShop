@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import React from "react";
 import ButtonItem from "./ButtonItem";
 import FormHeader from "./FormHeader";
 import InputItem from "./InputItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Divider, Typography, Modal } from "antd";
 import "./loginSignup.css";
 import { signup } from "../../redux";
 const { Text } = Typography;
 
 const FormSignup = () => {
+  let navigate = useNavigate();
   const { UserData } = useSelector((state) => state.UserData);
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ const FormSignup = () => {
     });
   };
   const onFinish = (values) => {
-    dispatch(signup(values));
+    dispatch(signup(values, navigate));
   };
   return (
     <div>
