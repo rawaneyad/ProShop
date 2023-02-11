@@ -17,8 +17,8 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         Cart: [...state.Cart, action.payload.Cart],
-        total: action.payload.total,
-        count: action.payload.count,
+        // total: action.payload.total,
+        // count: action.payload.count,
       };
     case DELETE_ITEM_FROM_CART:
       return {

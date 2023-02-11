@@ -3,8 +3,11 @@ import {
   POST_SIGNUP_SUCCESS,
   POST_SIGNUP_FAILED,
   POST_LOGIN_START,
-    POST_LOGIN_SUCCESS,
-    POST_LOGIN_FAILED,
+  POST_LOGIN_SUCCESS,
+  POST_LOGIN_FAILED,
+  ADD_CART_DATA_SUCCESS,
+  ADD_CART_DATA_START,
+  ADD_CART_DATA_FAILED,
 } from "./userType";
 const initialState = {
   UserData: {
@@ -28,8 +31,8 @@ const userReducer = (state = initialState, action) => {
           ...state.UserData,
           isLoading: false,
           UserData: action.payload,
-          error: '',
-          isAuth: true
+          error: "",
+          isAuth: true,
         },
       };
     case POST_SIGNUP_FAILED:
@@ -41,9 +44,7 @@ const userReducer = (state = initialState, action) => {
           error: action.payload,
         },
       };
-
-
-      case POST_LOGIN_START:
+    case POST_LOGIN_START:
       return {
         ...state,
         UserData: { ...state.UserData, isLoading: true },
@@ -55,11 +56,34 @@ const userReducer = (state = initialState, action) => {
           ...state.UserData,
           isLoading: false,
           UserData: action.payload,
-          error: '',
-          isAuth: true
+          error: "",
+          isAuth: true,
         },
       };
     case POST_LOGIN_FAILED:
+      return {
+        ...state,
+        UserData: {
+          ...state.UserData,
+          isLoading: false,
+          error: action.payload,
+        },
+      };
+    case ADD_CART_DATA_START:
+      return {
+        ...state,
+        UserData: { ...state.UserData, isLoading: true },
+      };
+    case ADD_CART_DATA_SUCCESS:
+      return {
+        ...state,
+        UserData: {
+          UserData: action.payload,
+          isLoading: false,
+          error: "",
+        },
+      };
+    case ADD_CART_DATA_FAILED:
       return {
         ...state,
         UserData: {

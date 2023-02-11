@@ -15,7 +15,7 @@ export const signup = (values, navigate) => async (dispatch) => {
       `https://prohop-express.herokuapp.com/api/users/signup`,
       values
     );
-    Cookies.set('user', res.data, { expires: 7 })
+    Cookies.set("user", JSON.stringify(res.data), { expires: 7 });
     dispatch({
       type: POST_SIGNUP_SUCCESS,
       payload: res.data,

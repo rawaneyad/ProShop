@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import ProductBoxCart from "./ProductBoxCart";
 
 const CartList = () => {
-  const { Cart } = useSelector((state) => state.Cart);
+  const { UserData } = useSelector((state) => state.UserData);
   return (
     <Space direction="vertical" className="ListProduct">
       <List
-        dataSource={Cart}
+        dataSource={UserData.UserData.cart}
         split={false}
         renderItem={(item) => (
           <List.Item key={item.product._id}>

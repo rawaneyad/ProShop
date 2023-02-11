@@ -38,7 +38,7 @@ const FormLogin = () => {
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        autoComplete="off"
+        // autoComplete="off"
       >
         <InputItem
           label="Enter your email address"

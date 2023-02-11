@@ -5,9 +5,9 @@ import Cookies from 'js-cookie'
 function Protected({ isAuth, children }) {
  
   if ( Cookies.get('user') || isAuth ) {
-  return <Navigate to="/dashboard" replace/>
+    // console.log(JSON.parse(Cookies.get('user'))._id);
+  return <Navigate to="/dashboard" replace />
   }
-
   
   return children
 }
