@@ -8,7 +8,7 @@ const CartList = () => {
   return (
     <Space direction="vertical" className="ListProduct">
       <List
-        dataSource={UserData.UserData.cart}
+        dataSource={UserData.UserData.cart.items}
         split={false}
         renderItem={(item) => (
           <List.Item key={item.product._id}>

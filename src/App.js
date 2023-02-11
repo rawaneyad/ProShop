@@ -14,11 +14,17 @@ import AddProduct from "./pages/AddProduct";
 import Dashboard from "./pages/Dashboard";
 import Protected from "./auth/Protected";
 import Auth from "./auth/Auth";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getProfile } from "./redux";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 function App() {
   const { UserData } = useSelector((state) => state.UserData);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(Cookies.get('user'))dispatch(getProfile());
+  }, [])
   return (
     <ConfigProvider
       ConfigProvider

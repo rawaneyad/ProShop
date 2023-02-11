@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 import ButtonCheckout from "./ButtonCheckout";
 const { Title } = Typography;
 const BoxTotal = () => {
-  const { count, total } = useSelector((state) => state.Cart);
+  const { UserData } = useSelector((state) => state.UserData);
 
   return (
     <Space className="BoxTotal" direction="vertical">
-      <Title className="Title">Subtotal ({count}) items</Title>
+      <Title className="Title">Subtotal ({UserData.UserData.cart.totalQty}) items</Title>
       <Title className="Title">
         $
-        {total}
+        {UserData.UserData.cart.totalPrice}
       </Title>
       <Divider />
       <ButtonCheckout />

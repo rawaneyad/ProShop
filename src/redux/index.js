@@ -6,4 +6,5 @@ export { search } from "./products/searchAction";
 export { getProductProfile } from "./product profile/profileProductAction";
 export { signup } from "./user/signupAction";
 export { login } from "./user/loginAction";
-export { addToCart } from "./user/cartAction";
+export { addToCart, deleteFromCart } from "./user/cartAction";
+export { getProfile } from "./user/profileAction";
