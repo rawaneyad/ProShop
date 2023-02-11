@@ -9,10 +9,16 @@
   width: 100%;
   justify-content: center;
 }
+.Cart .ant-list .ant-list-item {
+  padding: 0;
+  padding-bottom: 0.5em;
+}
 .Cart .BoxTotal {
   background-color: #f2f2f2;
-  width: 25em;
+  width: 20em;
   border-radius: 15px;
+  margin-left: 1em;
+  padding: 0.5em;
 }
 .Cart .BoxTotal button {
   margin-left: 1em;
@@ -20,14 +26,20 @@
   width: 90%;
   margin-bottom: 1em;
 }
-.Cart .Title {
+.Cart .Price {
+  width: -moz-max-content;
+  width: max-content;
   margin-left: 0.5em;
+}
+.Cart .Text {
+  text-decoration: line-through;
+}
+.Cart .Title {
   font-size: large;
-  width: 12em;
 }
 .Cart .ProductBoxCart {
   background-color: #F2F2F2;
-  padding: 0.5em;
+  padding: 0.7em;
   width: 100%;
 }
 .Cart .ProductBoxCart .CloseIcon {

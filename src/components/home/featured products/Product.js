@@ -17,6 +17,11 @@ const Product = ({ item }) => {
       align={"center"}
     >
       <Link to={`/product/${item._id}`}>
+        {item.discount !== 0 && (
+          <Text className="discount">
+            {parseInt((item.discount / item.price) * 100)}%
+          </Text>
+        )}
         <img
           alt="Product"
           src={item.images}
@@ -24,7 +29,14 @@ const Product = ({ item }) => {
         />
         <Text>{item.name}</Text>
         <Rate disabled allowHalf defaultValue={item.rating} />
-        <Text>${item.price}</Text>
+        <Space>
+          {item.discount !== 0 && (
+            <Text style={{ color: "#FC4059" }} className="Title">
+              ${item.price - item.discount}
+            </Text>
+          )}
+          <Text className="Text">${item.price}</Text>
+        </Space>
       </Link>
       <Space>
         <Button icon={<Icon icon="ant-design:heart-outlined" />} />
@@ -32,7 +44,7 @@ const Product = ({ item }) => {
           type="primary"
           onClick={() => {
             const qty = 1;
-            dispatch(addToCart(item, qty));
+            dispatch(addToCart(item._id, qty));
           }}
         >
           Add to cart

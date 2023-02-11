@@ -24,7 +24,16 @@ const IconBox = () => {
       </div>
       <div className="iconDev">
         <Link to="/cart">
-          <Badge size="small" count={UserData.UserData.cart.totalQty !== undefined ? UserData.UserData.cart.totalQty : 0 } showZero>
+          <Badge
+            size="small"
+            count={
+              // UserData.UserData.cart.totalQty === undefined
+              //   ?
+                 0
+                // : UserData.UserData.cart.totalQty
+            }
+            showZero
+          >
             <Icon icon="ant-design:shopping-cart-outlined" />
           </Badge>
           cart
