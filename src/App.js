@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "./redux";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
+import Payment from "./pages/Payment";
 
 function App() {
   const { UserData } = useSelector((state) => state.UserData);
@@ -53,6 +54,14 @@ function App() {
             element={
               <Protected isAuth={UserData.isAuth}>
                 <AddProduct />
+              </Protected>
+            }
+          />
+          <Route
+            path="/payment/"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <Payment/>
               </Protected>
             }
           />

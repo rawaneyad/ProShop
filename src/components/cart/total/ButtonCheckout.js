@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ButtonCheckout = () => {
   return (
-    <Link to={`/dashboard`}><Button type='primary'>Button Checkout</Button></Link>
+    <Link to={`/payment`}><Button type='primary'>Button Checkout</Button></Link>
   )
 }
 

@@ -1,8 +1,14 @@
+import { Space } from 'antd'
 import React from 'react'
+import UserProfileMenu from '../components/profile user/menu/UserProfileMenu'
+import UserDataBox from '../components/profile user/user data/UserDataBox'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <Space className='UserProfile'>
+      <UserProfileMenu/>
+      <UserDataBox/>
+    </Space>
   )
 }
 

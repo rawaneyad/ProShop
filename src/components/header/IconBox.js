@@ -4,15 +4,24 @@ import { Icon } from "@iconify/react";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
 const IconBox = () => {
   const { UserData } = useSelector((state) => state.UserData);
   return (
     <div className="iconsDev">
       <div className="iconDev">
         <div>
-          <Link to="/login">
+          <Link
+            to={
+              Cookies.get("user")
+                ? `/profile/${JSON.parse(Cookies.get("user"))._id}`
+                : "/login"
+            }
+          >
             <UserOutlined />
-            Signup/Login
+            {Cookies.get("user")
+              ? JSON.parse(Cookies.get("user")).firstName
+              : "Signup/Login"}
           </Link>
         </div>
       </div>
@@ -29,8 +38,8 @@ const IconBox = () => {
             count={
               // UserData.UserData.cart.totalQty === undefined
               //   ?
-                 0
-                // : UserData.UserData.cart.totalQty
+              0
+              // : UserData.UserData.cart.totalQty
             }
             showZero
           >
