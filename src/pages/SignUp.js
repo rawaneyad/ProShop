@@ -7,7 +7,7 @@ import Image from "../components/login & signup/Image";
 const SignUp = () => {
   return (
     <Space align="center" className="LoginSignup">
-      <FormSignup />
+        <FormSignup />
       <Image src={SignupImage} />
     </Space>
   );

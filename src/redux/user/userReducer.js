@@ -14,6 +14,10 @@ import {
   DELETE_CART_ITEM_START,
   DELETE_CART_ITEM_SUCCESS,
   DELETE_CART_ITEM_FAILED,
+  LOGOUT_SUCCESS,
+  PUT_PROFIlE_START,
+  PUT_PROFIlE_SUCCESS,
+  PUT_PROFIlE_FAILED,
   // PUT_IMAGE_START,
   // PUT_IMAGE_SUCCESS,
   // PUT_IMAGE_FAILED,
@@ -78,6 +82,41 @@ const userReducer = (state = initialState, action) => {
           error: action.payload,
         },
       };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        UserData: {
+          UserData: {},
+          isLoading: false,
+          error: "",
+          isAuth: false,
+        },
+      };
+    case PUT_PROFIlE_START:
+      return {
+        ...state,
+        UserData: { ...state.UserData, isLoading: true },
+      };
+    case PUT_PROFIlE_SUCCESS:
+      return {
+        ...state,
+        UserData: {
+          ...state.UserData,
+          isLoading: false,
+          UserData: action.payload,
+          error: "",
+          isAuth: true,
+        },
+      };
+    case PUT_PROFIlE_FAILED:
+      return {
+        ...state,
+        UserData: {
+          ...state.UserData,
+          isLoading: false,
+          error: action.payload,
+        },
+      };
     case GET_PROFILE_START:
       return {
         ...state,
@@ -126,7 +165,7 @@ const userReducer = (state = initialState, action) => {
           error: action.payload,
         },
       };
-      case DELETE_CART_ITEM_START:
+    case DELETE_CART_ITEM_START:
       return {
         ...state,
         UserData: { ...state.UserData, isLoading: true },

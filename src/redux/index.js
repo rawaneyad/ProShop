@@ -7,4 +7,6 @@ export { signup } from "./user/signupAction";
 export { login } from "./user/loginAction";
 export { addToCart, deleteFromCart } from "./user/cartAction";
 export { getProfile } from "./user/profileAction";
+export { logout } from "./user/logoutAction"
+export { updateProfile } from "./user/updateProfileAction";
 // export { imageUpload } from "./user/imageUploadAction";

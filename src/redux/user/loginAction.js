@@ -20,7 +20,7 @@ export const login = (values, navigate) => async (dispatch) => {
       type: POST_LOGIN_SUCCESS,
       payload: res.data,
     });
-    navigate("/dashboard");
+    navigate(`/profile/${res.data._id}`);
   } catch (e) {
     dispatch({
       type: POST_LOGIN_FAILED,

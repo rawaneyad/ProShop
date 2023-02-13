@@ -1,11 +1,17 @@
-import { Divider, Space, Typography } from "antd";
+import { Button, Divider, Space, Typography } from "antd";
 import Cookies from "js-cookie";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../../redux";
 import ProfileImage from "../user data/ProfileImage";
 const { Title } = Typography;
 
 const UserProfileMenu = () => {
+  let navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
   return (
     <div className="User">
       <Space direction="vertical">
@@ -24,9 +30,9 @@ const UserProfileMenu = () => {
         </Space>
       </Space>
       <Divider />
-      <Link to="/" onClick={() => Cookies.remove("user")}>
-        <Title level={4}>Logout</Title>
-      </Link>
+      <Button type="text" onClick={() => dispatch(logout(navigate))}>
+        <Link to="/">Logout</Link>
+      </Button>
     </div>
   );
 };
