@@ -1,9 +1,66 @@
-import React from 'react'
+import { Button, Space, Steps, Typography } from "antd";
+import { useState } from "react";
+import PlaceOrder from "../components/payment/steps/place on order/PlaceOrder";
+import ShippingPayment from "../components/payment/steps/shipping & payment/ShippingPayment";
 
 const Payment = () => {
+  const steps = [
+    {
+      title: "Shipping and Payment",
+      content: <ShippingPayment/>,
+    },
+    {
+      title: "Place an Order",
+      content: <PlaceOrder/>,
+    },
+  ];
+  const {Title}=Typography;
+  const [current, setCurrent] = useState(0);
+  const next = () => {
+    setCurrent(current + 1);
+  };
+  const prev = () => {
+    setCurrent(current - 1);
+  };
+  const items = steps.map((item) => ({
+    key: item.title,
+    title: item.title,
+  }));
   return (
-    <div>Payment</div>
-  )
-}
+    <Space direction="vertical" className="Payment">
+      <Title level={3}>Review Order</Title>
+      <Steps current={current} items={items} />
+      <div>{steps[current].content}</div>
+      <div
+        style={{
+          marginTop: 24,
+        }}
+      >
+        {current < steps.length - 1 && (
+          <Button type="primary" onClick={() => next()}>
+            Review Order
+          </Button>
+        )}
+        {current === steps.length - 1 && (
+          <Button
+            type="primary"
+          >
+            Place Order
+          </Button>
+        )}
+        {current > 0 && (
+          <Button
+            style={{
+              margin: "0 8px",
+            }}
+            onClick={() => prev()}
+          >
+            Previous
+          </Button>
+        )}
+      </div>
+    </Space>
+  );
+};
 
-export default Payment
+export default Payment;

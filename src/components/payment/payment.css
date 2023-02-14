@@ -1,0 +1,28 @@
+.Payment {
+  width: 92.39%;
+  margin: 3em;
+}
+.Payment h3 {
+  margin-top: 0;
+}
+.Payment .ShippingPayment .bill {
+  width: 100%;
+}
+.Payment .ShippingPayment .bill .billItem {
+  display: flex;
+  justify-content: space-between;
+}
+.Payment .ShippingPayment .ShippingPaymentForms {
+  background-color: #f2f2f2;
+  padding: 2em;
+  border-radius: 8px;
+  width: 97%;
+  margin: 0.5em;
+}
+.Payment .ShippingPayment .OrderDetails {
+  background-color: #f2f2f2;
+  padding: 2em;
+  border-radius: 8px;
+  width: 97%;
+  margin: 0.5em;
+}/*# sourceMappingURL=payment.css.map */

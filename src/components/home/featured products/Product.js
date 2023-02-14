@@ -1,13 +1,25 @@
 import React from "react";
-import { Rate, Typography, Space, Button } from "antd";
+import { Rate, Typography, Space, Button, message } from "antd";
 import { Icon } from "@iconify/react";
 import { addToCart } from "../../../redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const { Text } = Typography;
-
 const Product = ({ item }) => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'The product added successfully',
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'The product added failed',
+    });
+  };
   const dispatch = useDispatch();
   return (
     <Space
@@ -16,6 +28,7 @@ const Product = ({ item }) => {
       style={{ display: "flex" }}
       align={"center"}
     >
+      {contextHolder}
       <Link to={`/product/${item._id}`}>
         {item.discount !== 0 && (
           <Text className="discount">
@@ -43,8 +56,14 @@ const Product = ({ item }) => {
         <Button
           type="primary"
           onClick={() => {
-            const qty = 1;
-            dispatch(addToCart(item._id, qty));
+            const items = JSON.parse(localStorage.getItem("cart")).items;
+            const addCart = items.find((cart) => cart.product._id === item._id);
+            const qty = addCart === undefined ? 1 : addCart.qty + 1;
+            dispatch( addToCart(item._id, qty)).then(
+             JSON.parse(localStorage.getItem("message"))=== 'error'?
+             error()
+             :
+             success())
           }}
         >
           Add to cart

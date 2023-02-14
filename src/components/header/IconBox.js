@@ -3,10 +3,10 @@ import { UserOutlined } from "@ant-design/icons";
 import { Icon } from "@iconify/react";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import Cookies from "js-cookie";
 const IconBox = () => {
-  const { UserData } = useSelector((state) => state.UserData);
+  const totalQty = JSON.parse(localStorage.getItem("cart")).totalQty;
   return (
     <div className="iconsDev">
       <div className="iconDev">
@@ -33,16 +33,7 @@ const IconBox = () => {
       </div>
       <div className="iconDev">
         <Link to="/cart">
-          <Badge
-            size="small"
-            count={
-              // UserData.UserData.cart.totalQty === undefined
-              //   ?
-              0
-              // : UserData.UserData.cart.totalQty
-            }
-            showZero
-          >
+          <Badge size="small" count={totalQty} showZero>
             <Icon icon="ant-design:shopping-cart-outlined" />
           </Badge>
           cart

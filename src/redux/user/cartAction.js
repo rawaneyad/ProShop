@@ -10,6 +10,7 @@ import {
 } from "./userType";
 
 export const addToCart = (id, qty) => async (dispatch) => {
+  localStorage.removeItem("message");
   dispatch({
     type: ADD_CART_ITEM_START,
   });
@@ -25,11 +26,14 @@ export const addToCart = (id, qty) => async (dispatch) => {
         },
       }
     );
+    localStorage.setItem("cart", JSON.stringify(res.data.cart));
+    localStorage.setItem("message", 'success');
     dispatch({
       type: ADD_CART_ITEM_SUCCESS,
       payload: res.data,
     });
   } catch (e) {
+    localStorage.setItem("message", 'error');
     dispatch({
       type: ADD_CART_ITEM_FAILED,
       payload: e?.response?.data.message,
@@ -52,6 +56,7 @@ export const deleteFromCart = (id) => async (dispatch) => {
         },
       }
     );
+    localStorage.setItem("cart", JSON.stringify(res.data.cart));
     dispatch({
       type: DELETE_CART_ITEM_SUCCESS,
       payload: res.data,

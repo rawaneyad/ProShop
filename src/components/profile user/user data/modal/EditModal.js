@@ -55,9 +55,9 @@ const EditModal = () => {
         <Form
           layout="vertical"
           name="basic"
-          initialValues={{
-            remember: true,
-          }}
+          // initialValues={{
+          //   remember: true,
+          // }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"

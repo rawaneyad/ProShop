@@ -1,19 +1,19 @@
 import { Divider, Space, Typography } from "antd";
 import React from "react";
-import { useSelector } from "react-redux";
 import ButtonCheckout from "./ButtonCheckout";
 const { Title, Text } = Typography;
 const BoxTotal = () => {
-  const { UserData } = useSelector((state) => state.UserData);
-  const total = UserData.UserData.cart.items.reduce((acc, item) => {
+  const items = JSON.parse(localStorage.getItem("cart")).items;
+  const totalPrice = JSON.parse(localStorage.getItem("cart")).totalPrice;
+  const totalQty = JSON.parse(localStorage.getItem("cart")).totalQty;
+
+  const total = items.reduce((acc, item) => {
     return acc + item.product.price * item.qty;
   }, 0);
-  const discount = UserData.UserData.cart.totalPrice;
+  const discount = totalPrice;
   return (
     <Space className="BoxTotal" direction="vertical">
-      <Title className="Title">
-        Subtotal ({UserData.UserData.cart.totalQty}) items
-      </Title>
+      <Title className="Title">Subtotal ({totalQty}) items</Title>
       {total != discount && <Text className="Text">$ {total}</Text>}
       <Title className="Title">${discount}</Title>
       <Divider />
