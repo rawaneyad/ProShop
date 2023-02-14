@@ -1,17 +1,18 @@
-import { List } from 'antd'
-import React from 'react'
-import Product from './Product'
+import { List, Space } from "antd";
+import React from "react";
+import Product from "./Product";
 
 const ProductList = () => {
+  const items = JSON.parse(localStorage.getItem("cart")).items;
   return (
-    <List
-    itemLayout="horizontal"
-    // dataSource={data}
-    renderItem={(item) => (
-      <Product item={item}/>
-    )}
-  />
-  )
-}
+    <Space direction="vertical">
+      <List
+        itemLayout="horizontal"
+        dataSource={items}
+        renderItem={(item) => <Product item={item} />}
+      />
+    </Space>
+  );
+};
 
-export default ProductList
+export default ProductList;

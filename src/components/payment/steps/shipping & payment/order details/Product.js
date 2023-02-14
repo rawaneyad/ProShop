@@ -1,19 +1,16 @@
-import { List } from 'antd'
+import { List, Space, Typography } from 'antd'
 import React from 'react'
+const { Title, Text }= Typography
 
 const Product = ({item}) => {
   return (
-    <List.Item>
-        <List.Item.Meta
-          avatar={<img
-            alt="Product"
-            src="https://joeschmoe.io/api/v1/random"
-            style={{ width: 300, height: 300 }}
-          />}
-          title={<a href="https://ant.design">{item.title}</a>}
-          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-        />
-      </List.Item>
+    <List.Item className="ProductBoxCart">
+      <img src={item.product.images} alt="emptyCart" style={{width: '100px'}} />
+      <Title className="Title" level={5}>{item.product.name}</Title>
+      <Space className="Price" direction="vertical">
+        <Title className="Title" level={5}>${item.product.price - item.product.discount}</Title>
+      </Space>
+    </List.Item>
   )
 }
 

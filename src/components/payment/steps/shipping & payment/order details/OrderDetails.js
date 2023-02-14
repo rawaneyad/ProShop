@@ -8,10 +8,7 @@ const OrderDetails = () => {
   return (
     <Space direction="vertical" className="OrderDetails">
       <Header />
-      {/* <Divider />
-
-      <Divider /> */}
-<ProductList/>
+      <ProductList/>
       <Bill />
     </Space>
   );
