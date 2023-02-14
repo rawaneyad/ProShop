@@ -9,6 +9,7 @@ const Product = ({item}) => {
       <Title className="Title" level={5}>{item.product.name}</Title>
       <Space className="Price" direction="vertical">
         <Title className="Title" level={5}>${item.product.price - item.product.discount}</Title>
+        <Text className="Title" >${item.product.price} * {item.qty}</Text>
       </Space>
     </List.Item>
   )
