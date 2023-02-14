@@ -7,7 +7,7 @@ import ProductList from "./ProductList";
 const OrderDetails = () => {
   return (
     <Space direction="vertical" className="OrderDetails">
-      <Header />
+      <Header name='Order Details' />
       <ProductList/>
       <Bill />
     </Space>

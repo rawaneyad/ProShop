@@ -6,7 +6,7 @@ import Header from "../shipping & payment/order details/Header";
 const OrderDetails = () => {
   return (
     <Space direction="vertical" className="OrderDetails">
-      <Header />
+      <Header name='Order Details' />
       <Bill />
     </Space>
   );

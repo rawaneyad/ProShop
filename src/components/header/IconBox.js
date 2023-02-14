@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import Cookies from "js-cookie";
 const IconBox = () => {
-  const totalQty = JSON.parse(localStorage.getItem("cart")).totalQty;
+  // const totalQty = JSON.parse(localStorage.getItem("cart")).totalQty;
   return (
     <div className="iconsDev">
       <div className="iconDev">
@@ -33,7 +33,15 @@ const IconBox = () => {
       </div>
       <div className="iconDev">
         <Link to="/cart">
-          <Badge size="small" count={totalQty} showZero>
+          <Badge
+            size="small"
+            count={
+              JSON.parse(localStorage.getItem("cart"))
+                ? JSON.parse(localStorage.getItem("cart")).totalQty
+                : 0
+            }
+            showZero
+          >
             <Icon icon="ant-design:shopping-cart-outlined" />
           </Badge>
           cart

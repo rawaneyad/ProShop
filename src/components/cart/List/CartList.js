@@ -6,13 +6,13 @@ import ProductBoxCart from "./ProductBoxCart";
 
 const CartList = () => {
   // const { UserData } = useSelector((state) => state.UserData);
-  const items=JSON.parse(localStorage.getItem('cart')).items;
+  // const items=JSON.parse(localStorage.getItem('cart')).items;
   // console.log(items);
   // const items=JSON.parse(Cookies.get('cart').cart.items)
   return (
     <Space direction="vertical" className="ListProduct">
       <List
-        dataSource={items}
+        dataSource={JSON.parse(localStorage.getItem('cart')).items || []}
         split={false}
         renderItem={(item) => (
           <List.Item key={item.product._id}>

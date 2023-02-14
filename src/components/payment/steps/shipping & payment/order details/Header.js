@@ -1,10 +1,10 @@
 import { Button, Space, Typography } from "antd";
 import React from "react";
 const {Title}=Typography
-const Header = () => {
+const Header = ({name}) => {
   return (
     <Space>
-      <Title level={3}>Order Details</Title>
+      <Title level={3}>{name}</Title>
       <Button type="link">Change</Button>
     </Space>
   );

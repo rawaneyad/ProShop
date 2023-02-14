@@ -1,23 +1,26 @@
 import { Button, Space, Steps, Typography } from "antd";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import PlaceOrder from "../components/payment/steps/place on order/PlaceOrder";
 import ShippingPayment from "../components/payment/steps/shipping & payment/ShippingPayment";
+import { addOrder } from "../redux";
 
 const Payment = () => {
+  const dispatch = useDispatch();
   const steps = [
     {
       title: "Shipping and Payment",
-      content: <ShippingPayment/>,
+      content: <ShippingPayment />,
     },
     {
       title: "Place an Order",
-      content: <PlaceOrder/>,
+      content: <PlaceOrder />,
     },
   ];
-  const {Title}=Typography;
+  const { Title } = Typography;
   const [current, setCurrent] = useState(0);
   const next = () => {
-    setCurrent(current + 1);
+    localStorage.getItem("ShippingAddress") && setCurrent(current + 1);
   };
   const prev = () => {
     setCurrent(current - 1);
@@ -37,16 +40,14 @@ const Payment = () => {
         }}
       >
         {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Review Order
-          </Button>
-        )}
+            // <ButtonItem type="primary" onClick={() => next()} name=' Review Order' />
+            <Button type="primary" onClick={() => next()}>
+              Review Order
+            </Button>
+          )}
         {current === steps.length - 1 && (
-          <Button
-            type="primary"
-          >
-            Place Order
-          </Button>
+          <Button type="primary" onClick={() => 
+              dispatch(addOrder())}>Place Order</Button>
         )}
         {current > 0 && (
           <Button

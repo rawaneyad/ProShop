@@ -10,14 +10,14 @@ const Product = ({ item }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
     messageApi.open({
-      type: 'success',
-      content: 'The product added successfully',
+      type: "success",
+      content: "The product added successfully",
     });
   };
   const error = () => {
     messageApi.open({
-      type: 'error',
-      content: 'The product added failed',
+      type: "error",
+      content: "The product added failed",
     });
   };
   const dispatch = useDispatch();
@@ -56,14 +56,16 @@ const Product = ({ item }) => {
         <Button
           type="primary"
           onClick={() => {
-            const items = JSON.parse(localStorage.getItem("cart")).items;
-            const addCart = items.find((cart) => cart.product._id === item._id);
-            const qty = addCart === undefined ? 1 : addCart.qty + 1;
-            dispatch( addToCart(item._id, qty)).then(
-             JSON.parse(localStorage.getItem("message"))=== 'error'?
-             error()
-             :
-             success())
+            const qty = JSON.parse(localStorage.getItem("cart"))
+              ? JSON.parse(localStorage.getItem("cart")).items.find(
+                  (cart) => cart.product._id === item._id
+                ).qty
+              : 1;
+            dispatch(addToCart(item._id, qty)).then(
+              JSON.parse(localStorage.getItem("message")) === "error"
+                ? error()
+                : success()
+            );
           }}
         >
           Add to cart
