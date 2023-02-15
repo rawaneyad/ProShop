@@ -19,6 +19,7 @@ import { getProfile } from "./redux";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 import Payment from "./pages/Payment";
+import PaymentSuccess from "./components/payment/payment success/PaymentSuccess";
 
 function App() {
   const { UserData } = useSelector((state) => state.UserData);
@@ -62,6 +63,14 @@ function App() {
             element={
               <Protected isAuth={UserData.isAuth}>
                 <Payment/>
+              </Protected>
+            }
+          />
+          <Route
+            path="/payment/success"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <PaymentSuccess/>
               </Protected>
             }
           />

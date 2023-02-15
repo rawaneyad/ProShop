@@ -25,4 +25,26 @@
   border-radius: 8px;
   width: 97%;
   margin: 0.5em;
+}
+
+.PaymentSuccess {
+  background-color: #f2f2f2;
+  padding: 2em;
+  border-radius: 8px;
+  width: 97%;
+  margin: 0.5em;
+}
+.PaymentSuccess .ant-space-item {
+  width: 100%;
+}
+.PaymentSuccess .ant-space-item .ant-space {
+  width: 100%;
+}
+.PaymentSuccess .ant-space-item .ant-space .SuccessItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.PaymentSuccess .ant-space-item .ant-space .SuccessItem h5 {
+  margin: 0;
 }/*# sourceMappingURL=payment.css.map */

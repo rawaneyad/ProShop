@@ -5,7 +5,7 @@ import {
   } from "./orderType";
   import axios from "axios";
   import Cookies from "js-cookie";
-  export const addOrder = () => async (dispatch) => {
+  export const addOrder = (navigate) => async (dispatch) => {
     dispatch({
       type: POST_ORDER_START,
     });
@@ -24,7 +24,7 @@ import {
         }
       );
       localStorage.removeItem("cart")
-    //   navigate(`/profile/${res.data._id}`);
+      navigate('/payment/success');
       dispatch({
         type: POST_ORDER_SUCCESS,
         payload: res.data,

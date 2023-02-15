@@ -1,11 +1,13 @@
 import { Button, Space, Steps, Typography } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import PlaceOrder from "../components/payment/steps/place on order/PlaceOrder";
 import ShippingPayment from "../components/payment/steps/shipping & payment/ShippingPayment";
 import { addOrder } from "../redux";
 
 const Payment = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const steps = [
     {
@@ -31,30 +33,30 @@ const Payment = () => {
   }));
   return (
     <Space direction="vertical" className="Payment">
-      <Title level={3}>Review Order</Title>
+        <Title level={3}>Review Order</Title>
       <Steps current={current} items={items} />
       <div>{steps[current].content}</div>
       <div
         style={{
           marginTop: 24,
         }}
-      >
+        >
         {current < steps.length - 1 && (
-            // <ButtonItem type="primary" onClick={() => next()} name=' Review Order' />
-            <Button type="primary" onClick={() => next()}>
+          // <ButtonItem type="primary" onClick={() => next()} name=' Review Order' />
+          <Button type="primary" onClick={() => next()}>
               Review Order
             </Button>
           )}
         {current === steps.length - 1 && (
           <Button type="primary" onClick={() => 
-              dispatch(addOrder())}>Place Order</Button>
-        )}
+            dispatch(addOrder(navigate))}>Place Order</Button>
+            )}
         {current > 0 && (
           <Button
-            style={{
-              margin: "0 8px",
-            }}
-            onClick={() => prev()}
+          style={{
+            margin: "0 8px",
+          }}
+          onClick={() => prev()}
           >
             Previous
           </Button>
