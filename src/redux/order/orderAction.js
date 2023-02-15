@@ -11,7 +11,7 @@ import {
     });
     try {
         const values = JSON.parse(localStorage.getItem("ShippingAddress"))
-        console.log(values);
+        // console.log(values);
       const token = JSON.parse(Cookies.get("user")).token;
       const res = await axios.post(
         `https://prohop-express.herokuapp.com/api/orders`,

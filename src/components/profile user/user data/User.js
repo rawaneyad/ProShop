@@ -1,25 +1,25 @@
-import { Space, Typography } from "antd";
+import { Button, Form, Space, Typography, Upload } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import EditModal from "./modal/EditModal";
-// import { useDispatch } from "react-redux";
-// import { imageUpload } from "../../../redux";
+import { useDispatch } from "react-redux";
+import { imageUpload } from "../../../redux";
 import ProfileImage from "./ProfileImage";
 const { Title } = Typography;
 const User = () => {
   const { UserData } = useSelector((state) => state.UserData);
-  //   const dispatch = useDispatch();
-  //   const normFile = (e) => {
-  //       console.log('Upload event:', e.file[0]);
-  //     if (Array.isArray(e)) {
-  //       return e;
-  //     }
-  //     return e?.fileList;
-  //   };
-  //   const onFinish = (values) => {
-  //     dispatch(imageUpload(values));
-  //     console.log('Received values of form: ', values);
-  //   };
+    const dispatch = useDispatch();
+    const normFile = (e) => {
+        // console.log('Upload event:', e.file[0]);
+      if (Array.isArray(e)) {
+        return e;
+      }
+      return e?.fileList;
+    };
+    const onFinish = (values) => {
+      dispatch(imageUpload(values));
+      // console.log('Received values of form: ', values);
+    };
   return (
     <Space>
       <Space direction="vertical">
@@ -44,7 +44,7 @@ const User = () => {
       </Space>
       <Space className="ProfileImage" direction="vertical">
         <ProfileImage size={150} />
-        {/* <Form
+        <Form
           name="validate_other"
           onFinish={onFinish}
           style={{
@@ -55,8 +55,9 @@ const User = () => {
             name="upload"
             valuePropName="fileList"
             getValueFromEvent={normFile}
+            // id="fileInput"
           >
-            <Upload name="logo" listType="picture" >
+            <Upload name="logo" listType="picture"  >
               <Button>Upload new photo</Button>
             </Upload>
           </Form.Item>
@@ -66,7 +67,7 @@ const User = () => {
               Save
             </Button>
           </Form.Item>
-        </Form> */}
+        </Form>
       </Space>
     </Space>
   );

@@ -18,9 +18,9 @@ import {
   PUT_PROFIlE_START,
   PUT_PROFIlE_SUCCESS,
   PUT_PROFIlE_FAILED,
-  // PUT_IMAGE_START,
-  // PUT_IMAGE_SUCCESS,
-  // PUT_IMAGE_FAILED,
+  PUT_IMAGE_START,
+  PUT_IMAGE_SUCCESS,
+  PUT_IMAGE_FAILED,
 } from "./userType";
 const initialState = {
   UserData: {
@@ -188,29 +188,32 @@ const userReducer = (state = initialState, action) => {
           error: action.payload,
         },
       };
-    //   case PUT_IMAGE_START:
-    //   return {
-    //     ...state,
-    //     UserData: { ...state.UserData, isLoading: true },
-    //   };
-    // case PUT_IMAGE_SUCCESS:
-    //   return {
-    //     ...state,
-    //     UserData: {
-    //       UserData: { ...state.UserData.UserData,profileImage: action.payload},
-    //       isLoading: false,
-    //       error: "",
-    //     },
-    //   };
-    // case PUT_IMAGE_FAILED:
-    //   return {
-    //     ...state,
-    //     UserData: {
-    //       ...state.UserData,
-    //       isLoading: false,
-    //       error: action.payload,
-    //     },
-    //   };
+    case PUT_IMAGE_START:
+      return {
+        ...state,
+        UserData: { ...state.UserData, isLoading: true },
+      };
+    case PUT_IMAGE_SUCCESS:
+      return {
+        ...state,
+        UserData: {
+          UserData: {
+            ...state.UserData.UserData,
+            profileImage: action.payload,
+          },
+          isLoading: false,
+          error: "",
+        },
+      };
+    case PUT_IMAGE_FAILED:
+      return {
+        ...state,
+        UserData: {
+          ...state.UserData,
+          isLoading: false,
+          error: action.payload,
+        },
+      };
     default:
       return state;
   }
