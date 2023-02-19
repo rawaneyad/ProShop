@@ -1,0 +1,21 @@
+.Order {
+  background-color: #f2f2f2;
+  padding: 2em;
+  border-radius: 8px;
+  width: 97%;
+  margin: 1em;
+}
+.Order .ant-space-item {
+  width: 100%;
+}
+.Order .ant-space-item .ant-space {
+  width: 100%;
+}
+.Order .ant-space-item .ant-space .DetailsItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.Order .ant-space-item .ant-space .DetailsItem h5 {
+  margin: 0;
+}/*# sourceMappingURL=order.css.map */

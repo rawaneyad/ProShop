@@ -11,3 +11,6 @@ export { logout } from "./user/logoutAction"
 export { updateProfile } from "./user/updateProfileAction";
 export { addOrder } from "./order/orderAction";
 export { imageUpload } from "./user/imageUploadAction";
+export { getProductCategory } from "./products/categoryAction";
+export { getMyOrders } from "./order/MyOrdersAction";
+export { getOrderDetails } from "./order/orderDetailsAction"

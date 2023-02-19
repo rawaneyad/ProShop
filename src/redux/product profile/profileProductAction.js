@@ -1,4 +1,3 @@
-// import { useParams } from "react-router-dom";
 import {
   GET_PRODUCT_PROFILE_START,
   GET_PRODUCT_PROFILE_SUCCESS,
@@ -7,7 +6,7 @@ import {
 import axios from "axios";
 
 export const getProductProfile = (id) => async (dispatch) => {
-  // const { id } = useParams();
+
   dispatch({
     type: GET_PRODUCT_PROFILE_START,
   });

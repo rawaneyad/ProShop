@@ -8,11 +8,15 @@ import {
   GET_SEARCH_START,
   GET_SEARCH_SUCCESS,
   GET_SEARCH_FAILED,
+  GET_PRODUCT_CATEGORY_START,
+  GET_PRODUCT_CATEGORY_SUCCESS,
+  GET_PRODUCT_CATEGORY_FAILED,
 } from "./productsType";
 const initialState = {
   Products: {products: [], isLoading: false, error: ''},
   TopProducts: {products: [], isLoading: false, error: ''},
   Search: { products: [], isLoading: false, error: '' },
+  Category: { products: [], isLoading: false, error: '' },
 };
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -64,6 +68,22 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         Search: { ...state.Search, isLoading: false, error: action.payload },
+      };
+
+      case GET_PRODUCT_CATEGORY_START:
+      return {
+        ...state,
+        Category: { ...state.Category, isLoading: true },
+      };
+      case GET_PRODUCT_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        Category: { ...state.Category, isLoading: false, products: action.payload },
+      };
+      case GET_PRODUCT_CATEGORY_FAILED:
+      return {
+        ...state,
+        Category: { ...state.Category, isLoading: false, error: action.payload },
       };
     default:
       return state;

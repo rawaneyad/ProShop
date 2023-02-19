@@ -23,7 +23,7 @@ const UserProfileMenu = () => {
           </Title>
         </Space>
         <Space direction="vertical">
-          <Title level={4}>My Orders</Title>
+          <Link to="/orders/myorders"><Title level={4}>My Orders</Title></Link>
           <Title level={4}>Wishlist</Title>
           <Title level={4}>Notifcations</Title>
           <Title level={4}>Settings</Title>

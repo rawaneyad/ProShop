@@ -20,6 +20,9 @@ import Cookies from "js-cookie";
 import { useEffect } from "react";
 import Payment from "./pages/Payment";
 import PaymentSuccess from "./components/payment/payment success/PaymentSuccess";
+import Category from "./pages/Category";
+import MyOrders from "./pages/MyOrders";
+import Order from "./pages/Order";
 
 function App() {
   const { UserData } = useSelector((state) => state.UserData);
@@ -42,6 +45,7 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/product/category/:category" element={<Category />} />
           <Route
             path="/profile/:id"
             element={
@@ -55,6 +59,22 @@ function App() {
             element={
               <Protected isAuth={UserData.isAuth}>
                 <AddProduct />
+              </Protected>
+            }
+          />
+          <Route
+            path="/orders/myorders"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <MyOrders />
+              </Protected>
+            }
+          />
+          <Route
+            path="/orders/:id"
+            element={
+              <Protected isAuth={UserData.isAuth}>
+                <Order />
               </Protected>
             }
           />
