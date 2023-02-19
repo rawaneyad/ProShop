@@ -14,3 +14,4 @@ export { imageUpload } from "./user/imageUploadAction";
 export { getProductCategory } from "./products/categoryAction";
 export { getMyOrders } from "./order/MyOrdersAction";
 export { getOrderDetails } from "./order/orderDetailsAction"
+export { addReview } from "./product profile/addReviewAction"

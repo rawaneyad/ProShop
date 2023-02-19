@@ -24,4 +24,18 @@
 .ProductProfile .Title {
   display: flex;
   justify-content: space-between;
+}
+
+.AddReview {
+  width: 100%;
+  margin-top: 1em;
+  border-radius: 2em;
+  padding: 2em;
+  border: 0.1em solid yellow;
+}
+.AddReview .ant-space-item {
+  width: 100%;
+}
+.AddReview h4 {
+  margin: 0;
 }/*# sourceMappingURL=profile.css.map */

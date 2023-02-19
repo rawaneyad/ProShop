@@ -2,11 +2,11 @@ import { List } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import Header from "../../home/featured products/Header";
+import AddReview from "./AddReview";
 import ReviewBox from "./ReviewBox";
 
 const ReviewList = () => {
     const { ProfileProduct } = useSelector((state) => state.ProfileProduct);
-//   const image=ProfileProduct.profileProduct.reviews;
   return (
     <>
       <Header name="Reviews" />
@@ -18,6 +18,7 @@ const ReviewList = () => {
           </List.Item>
         )}
       />
+      <AddReview/>
     </>
   );
 };

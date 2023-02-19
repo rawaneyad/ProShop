@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 import { Button, Rate, Space, Tag, Typography } from "antd";
 import { addToCart } from "../../redux";
-// import Counter from "../cart/List/Counter";
 const { Text, Title } = Typography;
 
 const MainData = () => {
@@ -37,13 +36,11 @@ const MainData = () => {
             <Tag
               key={category}
               color="#fee853"
-              // shape="circle"
-              // style={{ backgroundColor: color }}
+             
             >{category}</Tag>
       ))}
       </Space>
       <Rate disabled allowHalf value={ProfileProduct.profileProduct.rating} />
-      {/* <Counter/> */}
       <Space>
         <Button icon={<Icon icon="ant-design:heart-outlined" />} />
         <Button
