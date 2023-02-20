@@ -5,6 +5,7 @@ import {
 } from "./userType";
 import axios from "axios";
 import Cookies from "js-cookie";
+import URL from "../../utils/URL";
 
 export const login = (values, navigate) => async (dispatch) => {
   dispatch({
@@ -12,7 +13,7 @@ export const login = (values, navigate) => async (dispatch) => {
   });
   try {
     const res = await axios.post(
-      `https://prohop-express.herokuapp.com/api/users/login`,
+      `${URL}/users/login`,
       values
     );
     Cookies.set("user", JSON.stringify(res.data), { expires: 7 });

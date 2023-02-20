@@ -5,16 +5,14 @@ import {
 } from "./userType";
 import axios from "axios";
 import Cookies from "js-cookie";
+import URL from "../../utils/URL";
 
 export const signup = (values, navigate) => async (dispatch) => {
   dispatch({
     type: POST_SIGNUP_START,
   });
   try {
-    const res = await axios.post(
-      `https://prohop-express.herokuapp.com/api/users/signup`,
-      values
-    );
+    const res = await axios.post(`${URL}/users/signup`, values);
     Cookies.set("user", JSON.stringify(res.data), { expires: 7 });
     dispatch({
       type: POST_SIGNUP_SUCCESS,

@@ -56,11 +56,10 @@ const Product = ({ item }) => {
         <Button
           type="primary"
           onClick={() => {
-            const qty = JSON.parse(localStorage.getItem("cart"))
-              ? JSON.parse(localStorage.getItem("cart")).items.find(
+            let qty = (JSON.parse(localStorage.getItem("cart"))?.items?.find(
                   (cart) => cart.product._id === item._id
-                ).qty
-              : 1;
+                )?.qty + 1)
+              || 1;
             dispatch(addToCart(item._id, qty)).then(
               JSON.parse(localStorage.getItem("message")) === "error"
                 ? error()

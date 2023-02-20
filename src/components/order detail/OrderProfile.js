@@ -1,4 +1,4 @@
-import { List, Space, Typography } from "antd";
+import { List, Result, Skeleton, Space, Typography } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import ProductList from "./ProductList";
@@ -9,14 +9,23 @@ const OrderProfile = () => {
 
   return (
     <Space direction="vertical" className="Order">
-      <Space className="DetailsItem">
+     {OrderDetails.isLoading ? (
+        <Skeleton active />
+      ) : OrderDetails.error !== "" ? (
+        <Result
+          status="error"
+          title="My Orders Failed"
+          subTitle={OrderDetails.error}
+        />
+      ) : (<>
+       <Space className="DetailsItem">
         <Title level={3}>Order Details</Title>
       </Space>
       <Space>
         <Title level={5}>Order number</Title>
         <Text>{OrderDetails.orderDetails._id}</Text>
       </Space>
-      <Space>
+      {/* <Space>
         <Title level={5}>Shipping Address</Title>
         <Text>
           {OrderDetails.orderDetails.shippingAddress.address},{" "}
@@ -24,7 +33,7 @@ const OrderProfile = () => {
           {OrderDetails.orderDetails.shippingAddress.country} -{" "}
           {OrderDetails.orderDetails.shippingAddress.postalCode}
         </Text>
-      </Space>
+      </Space> */}
       <Space>
         <Title level={5}>Created At</Title>
         <Text>{OrderDetails.orderDetails.createdAt}</Text>
@@ -45,6 +54,8 @@ const OrderProfile = () => {
         <Title level={5}>Order Items</Title>
         <ProductList />
       </Space>
+      </>
+      )}
     </Space>
   );
 };

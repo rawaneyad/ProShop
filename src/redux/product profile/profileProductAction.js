@@ -4,6 +4,7 @@ import {
   GET_PRODUCT_PROFILE_FAILED,
 } from "./profileProductType";
 import axios from "axios";
+import URL from "../../utils/URL";
 
 export const getProductProfile = (id) => async (dispatch) => {
 
@@ -12,7 +13,7 @@ export const getProductProfile = (id) => async (dispatch) => {
   });
   try {
     const res = await axios.get(
-      `https://prohop-express.herokuapp.com/api/products/${id}`
+      `${URL}/products/${id}`
     );
     dispatch({
       type: GET_PRODUCT_PROFILE_SUCCESS,

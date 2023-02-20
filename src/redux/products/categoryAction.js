@@ -4,6 +4,7 @@ import {
     GET_PRODUCT_CATEGORY_FAILED,
   } from "./productsType";
   import axios from "axios";
+import URL from "../../utils/URL";
   
   export const getProductCategory = (category) => async (dispatch) => {
     dispatch({
@@ -11,7 +12,7 @@ import {
     });
     try {
       const res = await axios.get(
-        `https://prohop-express.herokuapp.com/api/products/category/${category}`
+        `${URL}/products/category/${category}`
       );
       dispatch({
         type: GET_PRODUCT_CATEGORY_SUCCESS,

@@ -4,22 +4,17 @@ import {
   PUT_PROFIlE_FAILED,
 } from "./userType";
 import axios from "axios";
-import Cookies from "js-cookie";
+import URL from "../../utils/URL";
+import AUTH_HEADERS from "../../utils/AuthHeader";
 export const updateProfile = (values, navigate) => async (dispatch) => {
   dispatch({
     type: PUT_PROFIlE_START,
   });
   try {
-    const token = JSON.parse(Cookies.get("user")).token;
     const res = await axios.put(
-      `https://prohop-express.herokuapp.com/api/users/profile`,
+      `${URL}/users/profile`,
       values,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      AUTH_HEADERS
     );
     navigate(`/profile/${res.data._id}`);
     dispatch({

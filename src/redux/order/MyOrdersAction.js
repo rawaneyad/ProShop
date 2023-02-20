@@ -4,22 +4,17 @@ import {
   GET_MY_ORDERS_FAILED,
 } from "./orderType";
 import axios from "axios";
-import Cookies from "js-cookie";
+import URL from "../../utils/URL";
+import AUTH_HEADERS from "../../utils/AuthHeader";
 
 export const getMyOrders = () => async (dispatch) => {
   dispatch({
     type: GET_MY_ORDERS_START,
   });
   try {
-    const token = JSON.parse(Cookies.get("user")).token;
     const res = await axios.get(
-      `https://prohop-express.herokuapp.com/api/orders/myorders`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      `${URL}/orders/myorders`,
+      AUTH_HEADERS
     );
     dispatch({
       type: GET_MY_ORDERS_SUCCESS,

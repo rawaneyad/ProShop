@@ -4,6 +4,7 @@ import {
   GET_TOP_PRODUCTS_FAILED,
 } from "./productsType";
 import axios from "axios";
+import URL from "../../utils/URL";
 
 export const getTopProducts = () => async (dispatch) => {
   dispatch({
@@ -11,7 +12,7 @@ export const getTopProducts = () => async (dispatch) => {
   });
   try {
     const res = await axios.get(
-      `https://prohop-express.herokuapp.com/api/products/top`
+      `${URL}/products/top`
     );
     dispatch({
       type: GET_TOP_PRODUCTS_SUCCESS,

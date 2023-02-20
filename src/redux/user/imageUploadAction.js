@@ -5,6 +5,8 @@ import {
 } from "./userType";
 import axios from "axios";
 import Cookies from "js-cookie";
+import URL from "../../utils/URL";
+import AUTH_HEADERS from "../../utils/AuthHeader";
 
 export const imageUpload = (values) => async (dispatch, getState) => {
   dispatch({
@@ -15,7 +17,7 @@ export const imageUpload = (values) => async (dispatch, getState) => {
     fd.append("image", values.upload[0].originFileObj);
     const token = JSON.parse(Cookies.get("user")).token;
     const res = await axios.post(
-      `https://prohop-express.herokuapp.com/api/upload`,
+      `${URL}/upload`,
       fd,
       {
         headers: {
@@ -27,17 +29,12 @@ export const imageUpload = (values) => async (dispatch, getState) => {
     );
     const {UserData} = getState().UserData.UserData;
     await axios.put(
-      `https://prohop-express.herokuapp.com/api/users/profile`,
+      `${URL}/users/profile`,
       {
         ...UserData,
         profileImage: res.data,
       },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      AUTH_HEADERS
     );
     dispatch({
       type: PUT_IMAGE_SUCCESS,
